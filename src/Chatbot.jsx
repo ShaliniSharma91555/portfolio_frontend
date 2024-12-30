@@ -12,9 +12,12 @@ const Chatbot = () => {
       setMessages([...messages, userMessage]);
       setInput("");
 
-      const response = await axios.post("http://localhost:5000/api/chat", {
-        inp: input,
-      });
+      const response = await axios.post(
+        "https://portfolio-backend-tbwd.onrender.com/api/chat",
+        {
+          inp: input,
+        }
+      );
       const botMessage = { user: "Bot", message: response.data.answer };
       setMessages([...messages, userMessage, botMessage]);
     }
